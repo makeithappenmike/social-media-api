@@ -15,8 +15,11 @@ const {
 // /api/users
 router.route('/').get(getUsers); //.post(createUser);
 
-// // /api/users/:userId
-// router.route('/:userId').get(getSingleUser).delete(deleteUser);
+// /api/users/:userId
+router.route('/:userId').get(getSingleUser); //.delete(deleteUser);
+
+// /api/users/:userId/thoughts
+router.route('/').post(createUser);
 
 // // /api/users/:userId/thoughts
 // router.route('/:userId/thoughts').post(addThought);

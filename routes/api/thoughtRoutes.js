@@ -1,31 +1,31 @@
 const router = require('express').Router();
 const {
   getThoughts,
-  getSingleUser,
-  createUser,
+  getSingleThought,
+  createThought,
   deleteUser,
   addThought,
   removeThought,
-  addReaction,
+  createReaction,
   removeReaction,
   addFriend,
   removeFriend,
 } = require('../../controllers/thoughtController');
 
-// /api/thoughts
+// Get thoughts /api/thoughts
 router.route('/').get(getThoughts); //.post(createThought);
 
-// // /api/users/:userId
-// router.route('/:userId').get(getSingleUser).delete(deleteUser);
+// Get single thought /api/thoughts/:thoughId
+router.route('/:thoughtId').get(getSingleThought); //.delete(deleteThought);
 
-// // /api/users/:userId/thoughts
-// router.route('/:userId/thoughts').post(addThought);
+// Create thought /api/users/:userId/thoughts
+router.route('/').post(createThought);
 
-// // /api/users/:userId/thoughts/:thoughtId
+// Delete thought /api/users/:userId/thoughts/:thoughtId
 // router.route('/:userId/thoughts/:thoughtId').delete(removeThought);
 
-// // /api/users/:userId/reactions
-// router.route('/:userId/reactions').post(addReaction);
+// Create reaction /api/users/:userId/reactions
+router.route('/:thoughtId/reactions').post(createReaction);
 
 // // /api/users/:userId/reactions/:reactionId
 // router.route('/:userId/reactions/:reactionId').delete(removeReaction);
