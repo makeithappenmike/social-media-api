@@ -32,9 +32,27 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Create a new reaction
+  // Add an assignment to a student
   createReaction(req, res) {
-    Reaction.create(req.body)
-      .then((reactoin) => res.json(reactoin))
+    console.log('Creating reaction...');
+    console.log("Req Body:", req.body);
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $addToSet: { reactions: req.body } },
+      { runValidators: true, new: true }
+    )
+      .then((thought) =>
+        !thought
+          ? res
+              .status(404)
+              .json({ message: 'No thought found with that ID :(' })
+          : res.json(thought)
+      )
       .catch((err) => res.status(500).json(err));
   },
+//   createReaction(req, res) {
+//     Reaction.create(req.body)
+//       .then((reactoin) => res.json(reactoin))
+//       .catch((err) => res.status(500).json(err));
+//   },
 };
