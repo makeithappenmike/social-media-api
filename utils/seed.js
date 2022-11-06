@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { Reaction, Thought, User } = require('../models');
-const { getUsernames, getThoughts, getReactions } = require('./data');
+const { getUsers, getThoughts, getReactions } = require('./data');
 
 connection.on('error', (err) => err);
 
@@ -12,24 +12,28 @@ connection.once('open', async () => {
   // Drop existing users
   await User.deleteMany({});   
 
-  // Create empty array to hold the users
-  const users = [];
+  // Create empty arrays to hold users and thoughts
+  const usersArray = [];
+  const thoughtsArray = [];
 
-  const usernames = getUsernames();
+  const users = getUsers();
   const thoughts = getThoughts();
-  const reactions = getReactions();
+  // const thoughts = getThoughts();
+  // const reactions = getReactions();
 
-  users.push({
-    usernames,
-    thoughts,
-    reactions,
-    });
+  // usersArray.push({
+  //   users,
+  //   // thoughts,
+  //   // reactions,
+  //   });
 
   // Add users to the collection and await the results
-  await User.collection.insertMany(users);
+  // await User.collection.insertMany(usersArray);
+  await User.collection.insertOne(users);
+  await Thought.collection.insertOne(thoughts);
 
   // Log out the seed data to indicate what should appear in the database
-  console.table(users);
+  console.table(usersArray);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });

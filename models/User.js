@@ -4,7 +4,7 @@ const thoughtSchema = require('./Thought').schema;
 // TODO: Friends - Array of _id values referencing the User model (self-reference)
 // TODO: Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
 
-// Schema to create Student model
+// Schema to create User model
 const userSchema = new Schema(
   {
     username: {
@@ -22,11 +22,12 @@ const userSchema = new Schema(
     thoughts: [thoughtSchema],
     // friends: [user],
   },
-  {
-    toJSON: {
-      getters: true,
-    },
-  }
+  // TODO: Confirm where this should live
+  // {
+  //   toJSON: {
+  //     getters: true,
+  //   },
+  // }
 );
 
 const User = model('user', userSchema);
