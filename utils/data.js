@@ -31,13 +31,13 @@ const user =
         'email': 'omichaelaaron@gmail.com',
         'thoughts': [
             {
-                'thoughtText': 'This is a thought (1)!',
+                'thoughtText': 'This is a thought!',
                 'createdAt': '01/01/2022',
                 'username': `makeithappenmike`,
                 'reactions': [
                     {
                         'reactionId': 1,
-                        'reactionBody': 'This is a reaction (1)!',
+                        'reactionBody': 'This is a reaction!',
                         'username': 'makeithappenmike',
                         'createdAt': '01/01/2022',
                     },
@@ -50,7 +50,7 @@ const user =
 const thought = 
     {
         'thoughtId': 1,
-        'thoughtText': 'This is a thought (1)!',
+        'thoughtText': 'This is a thought!',
         'createdAt': '01/01/2022',
         'username': `makeithappenmike`,
         'reactions': [1]

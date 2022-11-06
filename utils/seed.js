@@ -19,7 +19,7 @@ connection.once('open', async () => {
   const users = getUsers();
   const thoughts = getThoughts();
   // const thoughts = getThoughts();
-  // const reactions = getReactions();
+  const reactions = getReactions();
 
   // usersArray.push({
   //   users,

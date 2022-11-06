@@ -25,4 +25,16 @@ module.exports = {
         return res.status(500).json(err);
         });
     },
+  // Create a new thought
+  createThought(req, res) {
+    Thought.create(req.body)
+      .then((thought) => res.json(thought))
+      .catch((err) => res.status(500).json(err));
+  },
+  // Create a new reaction
+  createReaction(req, res) {
+    Reaction.create(req.body)
+      .then((reactoin) => res.json(reactoin))
+      .catch((err) => res.status(500).json(err));
+  },
 };
