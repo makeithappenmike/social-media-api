@@ -46,29 +46,29 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-//   // Delete a user
-//   deleteUser(req, res) {
-//     User.findOneAndRemove({ _id: req.params.userId })
-//       .then((user) =>
-//         !user
-//           ? res.status(404).json({ message: 'No such user exists' })
-//           : Thought.findOneAndRemove(
-//               { thoughts: req.params.thoughtId },
-//               // TODO: update options for findOneAndRemove here
-//             )
-//       )
-//       .then((thought) =>
-//         !thought
-//           ? res.status(404).json({
-//               message: 'User deleted, but no thoughts found',
-//             })
-//           : res.json({ message: 'User successfully deleted' })
-//       )
-//       .catch((err) => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
-//   },
+  // Delete a user
+  deleteUser(req, res) {
+    User.findOneAndRemove({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No such user exists' })
+          : Thought.findOneAndRemove(
+              { thoughts: req.params.thoughtId },
+              // TODO: update options for findOneAndRemove here
+            )
+      )
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({
+              message: 'User deleted, but no thoughts found',
+            })
+          : res.json({ message: 'User successfully deleted' })
+      )
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
 
 //   // Add an assignment to a student
 //   addAssignment(req, res) {

@@ -12,14 +12,17 @@ const {
   removeFriend,
 } = require('../../controllers/userController');
 
-// /api/users
+// Get users /api/users
 router.route('/').get(getUsers); //.post(createUser);
 
-// /api/users/:userId
+// Get single user /api/users/:userId
 router.route('/:userId').get(getSingleUser); //.delete(deleteUser);
 
-// /api/users/:userId/thoughts
+// Create user /api/users/:userId/thoughts
 router.route('/').post(createUser);
+
+// Delete user /api/users/:userId
+router.route('/:userId').delete(deleteUser);
 
 // // /api/users/:userId/thoughts
 // router.route('/:userId/thoughts').post(addThought);
