@@ -9,31 +9,20 @@ connection.once('open', async () => {
   
   console.log('connected');
 
-  // Drop existing users
-  await User.deleteMany({});   
+  // Drop existing users and thoughts
+  await User.deleteMany({});
+  await Thought.deleteMany({}); 
 
-  // Create empty arrays to hold users and thoughts
-  const usersArray = [];
-  const thoughtsArray = [];
-
+  // Get new users and thoughts
   const users = getUsers();
   const thoughts = getThoughts();
-  // const thoughts = getThoughts();
-  const reactions = getReactions();
-
-  // usersArray.push({
-  //   users,
-  //   // thoughts,
-  //   // reactions,
-  //   });
 
   // Add users to the collection and await the results
-  // await User.collection.insertMany(usersArray);
   await User.collection.insertOne(users);
   await Thought.collection.insertOne(thoughts);
 
   // Log out the seed data to indicate what should appear in the database
-  console.table(usersArray);
+  console.table(users);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
