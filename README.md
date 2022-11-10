@@ -24,9 +24,6 @@ Postman or Insomnia can be used to make requests to the following:
   * ``POST /api/users`` to create a new user
   * ``PUT /api/users/user:Id`` to update a user by ``_id``
   * ``DELETE /api/users/user:Id`` to delete a user by ``_id`` (this removes associated ``thoughts``)
-* Friends
-  * ``POST /api/users/:userId/friends/`` to add a new friend (in progress)
-  * ``DELETE /api/users/:userId/friends/:friendId`` to a friend by ``_id`` (in progress)
 * Thoughts
   * ``GET /api/thoughts`` to see all thoughts
   * ``GET /api/thoughts/:thoughtId`` to see a single thought by ``_id``
@@ -36,6 +33,9 @@ Postman or Insomnia can be used to make requests to the following:
 * Reactions
   * ``POST /api/thoughts/:thoughtId/reactions/`` to add a new reaction
   * ``DELETE /api/thoughts/:thoughtId/reactions/:reactionId`` to delete a reaction by ``_id``
+* Friends
+  * ``POST /api/users/:userId/friends/`` to add a new friend (in progress)
+  * ``DELETE /api/users/:userId/friends/:friendId`` to a friend by ``_id`` (in progress)
 
 ## License
 This project is licensed under the MIT license.

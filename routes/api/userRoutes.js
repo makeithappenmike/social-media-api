@@ -28,6 +28,6 @@ router.route('/:userId').put(updateUser);
 router.route('/:userId/friends/:friendId').delete(deleteFriend);
 
 // Create a friend /api/users/:userId/friends/:friendId
-router.route('/:userId/friends/').post(createFriend);
+router.route('/:userId/friends/:friendId').post(createFriend);
 
 module.exports = router;

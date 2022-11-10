@@ -31,13 +31,13 @@ const userSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
+    id: false,
   }
 );
 
 // Create a virtual for friendCount
 userSchema.virtual('friendCount').get(function () {
-  console.log(this);
-  return this.username;
+  return "0";
 });
 
 const User = model('user', userSchema);

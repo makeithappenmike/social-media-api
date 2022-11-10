@@ -19,7 +19,7 @@ const user =
                 ]
             },
         ],
-        'friends': [1, 2, 3],
+        'friends': "636d777c32245ae578d31e07",
     }
 
 const thought = 
