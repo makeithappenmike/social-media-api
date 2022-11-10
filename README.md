@@ -6,17 +6,14 @@
 ## Description
 This is a Social Media API backend.
 
-<img src="./assets/img/tbd.png" />
-<br>
-
 ## Table of Contents
 [Installation](#installation)<br />[Usage](#usage)<br />[License](#license)<br />[Contributing](#contributing)<br />[Tests](#tests)<br />[Questions](#questions)
 
 ## Installation
 * Clone the repo
 * ``npm install`` to intialize the included dependencies
-* ``npm seed`` to seed the database
-* ``npm start`` to launch the server
+* ``npm run seed`` to seed the database
+* ``npm run start`` to launch the server
 
 ## Usage
 Postman or Insomnia can be used to make requests to the following:

@@ -5,7 +5,7 @@ module.exports = {
   // Get all thoughts
   getThoughts(req, res) {
     Thought.find()
-      .then((thoughts) => res.json(thoughts))
+      .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
   // Get single thought
@@ -17,7 +17,6 @@ module.exports = {
             ? res.status(404).json({ message: 'No thought with that ID' })
             : res.json({
                 thought,
-                // TODO: Add additional parameters?
             })
         )
         .catch((err) => {
@@ -52,33 +51,16 @@ module.exports = {
   // Delete a reaction
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      console.log(req.params.thoughtId),
       { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     )
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with this id!' })
-          : res.json(user)
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
-    Reaction.findOneAndRemove(
-      { _id: req.params.reactionId },
-      { $pull: req.params.reactionId },
-      { runValidators: true, new: true }
-      )
-      .then((reaction) =>
-        !reaction
-          ? res.status(404).json({ message: 'No such reaction exists' })
-          : Reaction.findOneAndRemove(
-              { reactions: req.params.reactionId },
-              // TODO: update options for findOneAndRemove here
-            )
-      )
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
   },
   // Delete a thought
   deleteThought(req, res) {
@@ -88,7 +70,6 @@ module.exports = {
           ? res.status(404).json({ message: 'No such thought exists' })
           : Thought.findOneAndRemove(
               { thoughts: req.params.thoughtId },
-              // TODO: update options for findOneAndRemove here
             )
       )
       .catch((err) => {

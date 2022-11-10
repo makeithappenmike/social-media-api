@@ -11,21 +11,6 @@ module.exports = {
         res.status(500).json(err);
       });
       },
-  // 
-//   getUsers(req, res) {
-//     console.log("Getting all users...");
-//     User.find()
-//       .then(async (users) => {
-//         const userObj = {
-//             users,
-//         };
-//         return res.json(userObj);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         return res.status(500).json(err);
-//       });
-//   },
   // Get a single user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
@@ -35,7 +20,6 @@ module.exports = {
           ? res.status(404).json({ message: 'No user with that ID' })
           : res.json({
               user,
-              // TODO: Add additional parameters?
             })
       )
       .catch((err) => {
@@ -57,7 +41,6 @@ module.exports = {
           ? res.status(404).json({ message: 'No such user exists' })
           : Thought.findOneAndRemove(
               { thoughts: req.params.thoughtId },
-              // TODO: update options for findOneAndRemove here
             )
       )
       .then((thought) =>
